@@ -1,0 +1,68 @@
+
+#Definition{
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 2em;
+}
+.terminology {
+	margin: 2em 1px 2em 1px;
+	/* overflow-wrap: break-word; */
+  /* overflow: scroll; */
+  display: grid;
+  grid-template-columns: 2fr auto;
+  grid-column-gap:0em;
+  line-height: 100px;
+  text-align: center;
+}
+
+.terminology dt {
+	font-weight: 600;
+  line-height: 100px;
+  text-align: center;
+  min-height: 5em;
+	/* float: left; */
+	clear: both;
+	/* margin: 0 10px 0 0; */
+	/* padding: 1em 2.5em 5em; */
+	border-top: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+.terminology dd {
+  	/* margin: 0 0 0 150px; */
+	/* padding: 2em 0; */
+  /* display: inline-block; */
+  word-wrap: break-word;
+  vertical-align: middle;
+  line-height: 3em;
+  text-align: center;
+  padding-left: 1.5em;
+  border-top: 1px solid #ccc;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  /* min-height: 2.5em;
+  height: auto; */
+  min-height: 5em;
+  font-size: 1em;
+}
+.terminology dt:first-of-type, .terminology dd:first-of-type  {
+	border-top: none;
+}
+@media screen and (max-width: 800px){
+  .terminology{
+      grid-template-columns: 100px auto;
+      /* overflow: scroll; */
+      font-size: 14px;
+      overflow: scroll;
+  }
+}
+@media screen and (max-width: 790px){
+  .terminology dt{
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 390px){
+  .terminology dt{
+    font-size: 12px;
+  }
+}

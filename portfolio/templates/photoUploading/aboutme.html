@@ -1,0 +1,27 @@
+{% extends 'photoUploading/base.html' %}
+{%  load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/aboutme.css' %}">
+{% endblock %}
+{% block content %}
+	<main class="main">
+          <article>
+            <div class="textbox">
+              <h1>Обо мне</h1>
+              <div class="itsme">
+                <div class="D3__effect"
+                     style="background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                     url({{ description.main_photo.url }}); background-size: 0, cover;">
+                  <span class="descr-of-me">Это я с камерой ;)</span>
+                </div>
+              </div>
+              <br>
+              <p>{{ description.text }}</p>
+                </div>
+              </article>
+        </main>
+{% endblock %}
+
+
+

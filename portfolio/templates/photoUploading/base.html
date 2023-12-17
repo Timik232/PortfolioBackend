@@ -1,0 +1,127 @@
+{%  load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Комолов Тимур</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+  <link rel="icon" href="https://cdn.icon-icons.com/icons2/753/PNG/512/photo-camera-1_icon-icons.com_63898.png" sizes="any">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Oswald&display=swap" rel="stylesheet">
+  {% block css %}
+  {% endblock %}
+  </head>
+  <body>
+    <div class="background">
+        <header class="shapka">
+            <div class="shapka__logo">
+                <div class="image__logo">
+                    <img src="{% static 'images/camera_large.png' %}" usemap="#Logo" alt="Логотип сайта" height="64px' %}">
+                    <map name="Logo">
+                        <area shape="rectangle" coords="0,0,100,100" href="{% url 'index' %}"></area>
+                    </map>
+                </div>
+                <div class="logotext">
+                Комолов Тимур
+                </div>
+            </div>
+            <nav class="navbar">
+              <input id="menu-toggle" type="checkbox" />
+              <label class='menu-button-container' for="menu-toggle">
+              <div class='menu-button'></div>
+              <div class="menu-label">Меню</div>
+              </label>
+            <div class="shapka__blocks">
+                <ul class="elements">
+                    <li><a href="{% url 'index' %}">
+                        <div class="shapka__blocks__item">
+                            Главная
+                        </div>
+                    </a>
+                    </li>
+                    <li><a href="{% url "aboutme" %}">
+                        <div class="shapka__blocks__item">
+                            Обо мне
+                        </div>
+                    </a>
+                    </li>
+                    <li><a href="{% url "portfolio:series" %}">
+                        <div class="shapka__blocks__item">
+                            Серии фото
+                        </div>
+                    </a>
+                    </li>
+                    <li><a href="{% url "portfolio:reports" %}">
+                        <div class="shapka__blocks__item">
+                            Репортажка
+                        </div>
+                    </a>
+                    </li>
+                    <li><a href="{% url "phototerm" %}">
+                        <div class="shapka__blocks__item">
+                            Термины
+                        </div>
+                    </a>
+                    </li>
+                    <li><a  href="{% url "contacts" %}">
+                        <div class="shapka__blocks__item">
+                            Контакты
+                        </div>
+                    </a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+        </header>
+        {% block content %}
+        {% endblock %}
+        {% block top-button %}
+        	<aside id="upHere__container">
+          <button onclick="topFunction()" id="upHere" title="Go to top"><img src="{% static 'images/up.svg' %}"></button>
+      </aside>
+      <script src="{% static 'js/button.js' %}"></script>
+        {% endblock %}
+        {% block scripts %}
+        {% endblock %}
+    <div class="flex-grow"></div>
+        <footer class="dungeon">
+            <div class="dungeon__text">
+                <span>
+                  <a href="https://vk.com/timik232">©Комолов Тимур</a>, 2022-2024
+                </span>
+                {% block social %}
+                  <span class="media">
+                    <span class="social-media-button vk-style" >
+                    <a href="https://vk.com/timik232" class="circle">
+                        <span class="logo"></span>
+                        <span class="moving-gradient"></span>
+                    </a>
+                      <span class="glow"></span>
+                    </span>
+                    <span class="social-media-button telegram-style" >
+                      <a href="https://t.me/ser13volk" class="circle">
+                         <span class="logo"></span>
+                        <span class="moving-gradient"></span>
+                      </a>
+                      <span class="glow"></span>
+                    </span>
+                    <span class="social-media-button github-style" >
+                      <a href="https://www.github.com/timik232" class="circle">
+                        <span class="logo"></span>
+                        <span class="moving-gradient"></span>
+                      </a>
+                      <span class="glow"></span>
+                    </span>
+                  </span>
+                {% endblock %}
+                {% block admin %}
+
+                {% endblock %}
+                  <span></span>
+            </div>
+        </footer>
+    </div>
+  </body>
+  </html>
