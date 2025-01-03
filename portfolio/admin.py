@@ -4,14 +4,14 @@ from portfolio.models import Album, Element, Image, Description, Order
 from django import forms
 
 
-class MultiplyImageForm(forms.ModelForm):
-    class Meta:
-        model = Image
-        fields = "__all__"
-
-        widgets = {
-            'images': forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
-        }
+# class MultiplyImageForm(forms.ModelForm):
+#     class Meta:
+#         model = Image
+#         fields = "__all__"
+#
+#         widgets = {
+#             'images': forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
+#         }
 
 
 admin.site.register(Album)
