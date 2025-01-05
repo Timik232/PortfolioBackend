@@ -243,3 +243,4 @@ cython_debug/
 secret.py
 *.pyc
 PictureMe/__pycache__
+secret_token.py
