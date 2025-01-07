@@ -603,7 +603,7 @@ a:hover {
     white-space: nowrap;
     /* box-shadow: -1px 3px 5px rgb(2, 50, 79); */
     transform: translateY(+20%);
-    transition: all 2s easy-in-out;
+    transition: all 2s ease-in-out;
     overflow: hidden;
     /* align-items: flex-start; */
 }
