@@ -1,0 +1,30 @@
+{% extends 'photoUploading/base.html' %}
+{%  load static %}
+{% block css %}
+	<link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/series.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/photoreports.css' %}">
+{% endblock %}
+{% block content %}
+	<main class="main">
+          <article>
+          <div class="reports">
+            <ul>
+                {% for el in serie_els %}
+                    <li><a href="{% url 'portfolio:reports_element' el.id  %}"><div class="hover-text-one report{{ el.style_number }}">
+                    <figure class="effect-text-two">
+                      <img src="{{ el.image.url }}" width=460px alt="dance">
+
+                        <figcaption>
+        {#                    <p>Репетиции <span> бала</span></p>#}
+                    <p>{{ el.first_name }} <span> {{ el.last_name }}</span></p>
+                        </figcaption>
+                    </figure>
+                  </div>
+                  </a></li>
+                {% endfor %}
+            </ul>
+          </div>
+          </article>
+        </main>
+{% endblock %}

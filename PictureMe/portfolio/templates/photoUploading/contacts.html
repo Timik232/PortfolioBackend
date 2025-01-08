@@ -1,0 +1,128 @@
+{% extends 'photoUploading/base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/contacts.css' %}">
+{% endblock %}
+{% block content %}
+    <main class="main__contact">
+        <div class="textbox">
+            <div class="text__contact">
+                <article class="contact__text">
+                    <h1>Контакты</h1>
+                    <button id="turnoff">Выключить эффекты</button>
+                    <br>
+                    <ul>
+                        <div class="grid__input">
+                            <div>
+                                <li>
+                                    <address class="vkid"><a href="https://vk.com/timik232">Мой ВК:</a></address>
+                                </li>
+                                <div class="social-media-button vk-style">
+                                    <a href="https://vk.com/timik232" class="circle">
+                                        <div class="logo"></div>
+                                        <div class="moving-gradient"></div>
+                                    </a>
+                                    <div class="glow"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <li><a href="https://www.youtube.com/@user-vl4ux2sr7l">Мой YouTube:</a></li>
+                                <div class="social-media-button youtube-style">
+                                    <a href="https://www.youtube.com/@user-vl4ux2sr7l" class="circle">
+                                        <div class="logo"></div>
+                                        <div class="moving-gradient"></div>
+                                    </a>
+                                    <div class="glow"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <li><a href="https://t.me/ser13volk">Телеграмм:</a>
+                                <li>
+                                    <div class="social-media-button telegram-style">
+                                        <a href="https://t.me/ser13volk" class="circle">
+                                            <div class="logo"></div>
+                                            <div class="moving-gradient"></div>
+                                        </a>
+                                        <div class="glow"></div>
+                                    </div>
+                            </div>
+                            <div>
+                                <li><a href="https://www.github.com/timik232">Мой гитхаб:</a></li>
+                                <div class="social-media-button github-style">
+                                    <a href="https://www.github.com/timik232" class="circle">
+                                        <div class="logo"></div>
+                                        <div class="moving-gradient"></div>
+                                    </a>
+                                    <div class="glow"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <li>Моя почта: <a href="mailto:komolov.timurka@mail.ru">komolov.timurka@mail.ru</a></li>
+                    </ul>
+                    <br>
+                    <div class="color"></div>
+                    <div class="color"></div>
+                    <div class="color"></div>
+                    <div class="box">
+                        <div class="square" style="--i:0;"></div>
+                        <div class="square" style="--i:1;"></div>
+                        <div class="square" style="--i:2;"></div>
+                        <div class="square" style="--i:3;"></div>
+                        <div class="square" style="--i:4;"></div>
+                        <div class="square" style="--i:5;"></div>
+                    </div>
+                    <form action="" method="post" class="sendMessage">
+                        {% csrf_token %}
+                        <fieldset id="send">
+                            <legend id="legsend"><h2>Отправить письмо</h2></legend>
+                            <div class="grid__input">
+                          <span class="grid__column">
+                            <label for="{{ form.name.id_for_label }}">Имя и фамилия</label>
+                          <div class="inp">{{ form.name }}</div>
+                         <label for="form.email.id_for_label">Email</label>
+                          <div class="inp">{{ form.email }}</div>
+                        </span>
+                                <span class="grid__column">
+                            <label for="{{ form.phone_number.id_for_label }}">Номер телефона(необязательно):</label>
+                          <div class="inp">{{ form.phone_number }}</div>
+                          <label for="{{ form.vk_url.id_for_label }}">Ссылка на вк (необязательно):</label>
+                          <div class="inp">{{ form.vk_url }}</div>
+                        </span>
+                            </div>
+                            <label for="{{ form.is_vk_answer.id_for_label }}">Отвечать в вк? </label>
+                            {{ form.is_vk_answer }}<br>
+                            <label for="{{ form.message.id_for_label }}">Сообщение</label>
+                            <div class="inp">{{ form.message }}</div>
+                            <label for="{{ form.purpose1.id_for_label }}">Тема сообщения</label><br>
+                            {{ form.purpose1 }}
+                            {#                          <select name="topic" id="topic" autofocus required>#}
+                            {#                            <option value="">Выберите тему сообщения</option>#}
+                            {#                            <option value="question">Задать вопрос</option>#}
+                            {#                            <option value="photo">Заказать съёмку</option>#}
+                            {#                            <option value="opinion">Спросить совета</option>#}
+                            {#                            <option value="other">Другое</option>#}
+                            {#                          </select>#}
+                            <br>
+                            <button type="submit" id="submit" value="Отправить">Отправить</button>
+                        </fieldset>
+                    </form>
+                </article>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+{% block scripts %}
+    <script src="/static/js/submit.js">
+    </script>
+    {% if messages %}
+        {#    <script>#}
+        {#        alert("{{ messages }}");#}
+        {#    </script>#}
+    {% endif %}
+{% endblock %}
+{% block top-button %}
+{% endblock %}
+{% block social %}
+{% endblock %}
