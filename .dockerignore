@@ -1,0 +1,10 @@
+**/.git
+**/nginx
+**/keys
+
+*/migrations/*
+!*/migrations/__init__.py
+
+#**/.env
+#
+#.env

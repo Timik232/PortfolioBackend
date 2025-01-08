@@ -1,0 +1,105 @@
+{% extends 'photoUploading/base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/contacts.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/admin_supp.css' %}">
+{% endblock %}
+
+{% load i18n static %}
+
+{% block extrastyle %}{{ block.super }}
+    <link rel="stylesheet" href="{% static "admin/css/login.css" %}">
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/admin_supp.css' %}">
+    {{ form.media }}
+{% endblock %}
+
+{% block bodyclass %}{{ block.super }} login{% endblock %}
+
+{% block usertools %}{% endblock %}
+
+{% block nav-global %}
+    <div class="background">
+
+    </div>
+{% endblock %}
+
+{% block nav-sidebar %}{% endblock %}
+
+{% block content_title %}{% endblock %}
+
+{% block nav-breadcrumbs %}{% endblock %}
+
+{% block content %}
+    <main class="main__contact">
+        <h1>Админ-панель</h1>
+        {% if form.errors and not form.non_field_errors %}
+            <p class="errornote">
+                {% blocktranslate count counter=form.errors.items|length %}Please correct the error
+                    below.
+                    {% plural %}Please
+                    correct the errors below.{% endblocktranslate %}
+            </p>
+        {% endif %}
+
+
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <p class="errornote">
+                    {{ error }}
+                </p>
+            {% endfor %}
+        {% endif %}
+
+                    <div class="box">
+                        <div class="square" style="--i:0;"></div>
+                        <div class="square" style="--i:1;"></div>
+                        <div class="square" style="--i:2;"></div>
+                        <div class="square" style="--i:3;"></div>
+                        <div class="square" style="--i:4;"></div>
+                        <div class="square" style="--i:5;"></div>
+                    </div>
+
+        {% if user.is_authenticated %}
+            <p class="errornote">
+                {% blocktranslate trimmed %}
+                    You are authenticated as {{ username }}, but are not authorized to
+                    access this page. Would you like to login to a different account?
+                {% endblocktranslate %}
+            </p>
+        {% endif %}
+
+        <form action="{{ app_path }}" method="post" class="sendMessage" id="login-form">{% csrf_token %}
+                <div class="login">
+                    {{ form.username.errors }}
+                    {{ form.username.label_tag }} {{ form.username }}
+                </div>
+
+
+                <div class="login">
+                    {{ form.password.errors }}
+                    {{ form.password.label_tag }} {{ form.password }}
+                    <input type="hidden" class="login" name="next" value="{{ next }}">
+                </div>
+
+            {% url 'admin_password_reset' as password_reset_url %}
+            {% if password_reset_url %}
+                <div class="password-reset-link">
+                    <a href="{{ password_reset_url }}">{% translate 'Forgotten your password or username?' %}</a>
+                </div>
+            {% endif %}
+
+                <div class="login">
+                    <input type="submit" id="login-button" class="login" value="{% translate 'Log in' %}">
+                </div>
+        </form>
+                    <div class="box">
+                        <div class="square" style="--i:0;"></div>
+                    </div>
+    </main>
+{% endblock %}
+{% block top-button %}
+{% endblock %}
+{% block social %}
+{% endblock %}

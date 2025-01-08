@@ -1,0 +1,80 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - DJANGO_SUPERUSER_EMAIL=${DJANGO_SUPERUSER_EMAIL}
+        - DJANGO_SUPERUSER_PASSWORD=${DJANGO_SUPERUSER_PASSWORD}
+        - DJANGO_SUPERUSER_USERNAME=${DJANGO_SUPERUSER_USERNAME}
+    container_name: PictureMe
+    restart: always
+    expose:
+      - 8000
+    command: bash -c "
+      python manage.py makemigrations &&
+      python manage.py migrate --no-input &&
+      python superuser.py &&
+      gunicorn PictureMe.wsgi:application -b 0.0.0.0:8000
+      "
+    #      python superuser.py &&
+    volumes:
+      - PictureMe:/usr/src/PictureMe
+      - PictureMe_media:/usr/src/PictureMe/media
+      - PictureMe_static:/usr/src/PictureMe/static
+    env_file:
+      - ./.env
+    environment:
+      - ENV_FILE=.env
+    healthcheck:
+      test: [ "CMD", "curl", "--fail", "--header", "Host: web", "http://localhost/" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    depends_on:
+      db:
+        condition: service_healthy
+
+  nginx:
+    build:
+      context: nginx/.
+    container_name: webserver
+    restart: always
+    volumes:
+      - ./ssl:/ssl/
+      - PictureMe_media:/usr/src/PictureMe/media
+      - PictureMe_static:/usr/src/PictureMe/static
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - web
+
+  db:
+    image: mysql:latest
+    container_name: db_PictureMe
+    restart: always
+    env_file:
+      - ./.env
+    environment:
+      MYSQL_ROOT_HOST: "%"
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_PORT: ${MYSQL_PORT}
+    ports:
+      - 13666:3306
+    volumes:
+      - db_PictureMe:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin","ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+
+volumes:
+  PictureMe:
+  PictureMe_media:
+  PictureMe_static:
+  db_PictureMe:

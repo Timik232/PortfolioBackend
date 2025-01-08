@@ -1,0 +1,39 @@
+{% extends 'photoUploading/base.html' %}
+{%  load static %}
+{% block css %}
+	<link rel="stylesheet" href="{% static 'styles/main.css' %}">
+{% endblock %} css %}
+{% block content %}
+	<main class="main">
+          <article>
+            <div class="textbox">
+                   <p>{{ description.text }}</p>
+                   <div class="d7200">
+                   <p class="text__d7200" title="nikkor 24-70 2.8 AF-S" camera-description="Это камера, на которую я снимаю в текущий момент — Nikon D780"><img src="{{ description.main_photo.url }}" height="520px" alt=""></p>
+                 </div>
+            </div>
+          </article>
+        </main>
+          <!-- <div class="sticky__line">
+         <aside class="to__hover">
+        </aside>
+        <div class="additional">
+          <span class="miniheader">
+          <img src="images/additional.png" alt="icon" height="64px">
+          </span>
+          <div class="addit__el">
+          <ul>
+            <h3>Разное</h3>
+            <li><a href="buttons.html">Кнопки</a></li>
+            <li><a href="page.html">Страница</a></li>
+            <li><a href="gridtest.html">Grid-test</a></li>
+          </ul>
+        </div>
+      </div>
+    </div> -->
+{% endblock %} content  %}
+{% block admin %}
+	<a href="{% url 'admin:index' %}" class="circle" id="admin-icon">
+        <img src="{% static 'images/admin.jpg' %}" alt="Admin Panel" width="40px">
+    </a>
+{% endblock %}

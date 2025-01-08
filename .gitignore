@@ -244,3 +244,7 @@ secret.py
 *.pyc
 PictureMe/__pycache__
 secret_token.py
+ssl/
+*.png
+*.jpg
+*.jpeg

@@ -1,0 +1,27 @@
+{% extends 'photoUploading/base.html' %}
+{%  load static %}
+{% block css %}
+	<link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/series.css' %}">
+{% endblock %}
+{% block content %}
+	<main class="main">
+          <article>
+            <div class="series">
+              <ul>
+                  {% for el in serie_els %}
+                      <li><a href="{% url 'portfolio:series_element' el.id  %}"><div class="hover-text-one serie{{ el.style_number }}">
+                      <figure class="effect-text-two">
+                        <img src="{{ el.image.url }}" width=460px alt="fire">
+                          <figcaption>
+                        <p>{{ el.first_name }} <span> {{ el.last_name }}</span></p>
+                          </figcaption>
+                      </figure>
+                    </div>
+                    </a></li>
+                  {% endfor %}
+            </ul>
+            </div>
+          </article>
+        </main>
+{% endblock %}
