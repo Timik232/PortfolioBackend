@@ -18,9 +18,9 @@ from PictureMe.secret import secret_key
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-dotenv_file = os.path.join(BASE_DIR, os.environ.get("ENV_FILE", ".env"))
-if os.path.isfile(dotenv_file):
-    dotenv.load_dotenv(dotenv_file)
+# dotenv_file = os.path.join(BASE_DIR, os.environ.get("ENV_FILE", ".env"))
+# if os.path.isfile(dotenv_file):
+#     dotenv.load_dotenv(dotenv_file)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -30,12 +30,10 @@ SECRET_KEY = secret_key
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DJANGO_DEBUG", "") == "True"
 
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "127.0.0.1").split(" ")
-
-CSRF_TRUSTED_ORIGINS = os.environ.get("DJANGO_ALLOWED_CSRF", "http://127.0.0.1").split(
-    " "
-)
-
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "127.0.0.1").split(",")
+CSRF_TRUSTED_ORIGINS = os.environ.get("DJANGO_ALLOWED_CSRF", "http://127.0.0.1").split(",")
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Application definition
 
 INSTALLED_APPS = [
@@ -92,8 +90,8 @@ DATABASES = {
         "NAME": os.environ.get("MYSQL_DATABASE", "portfolio"),
         "USER": os.environ.get("MYSQL_USER", "Timur"),
         "PASSWORD": os.environ.get("MYSQL_PASSWORD", "password"),
-        # "HOST": os.environ.get("MYSQL_HOST", "db"),
-        "HOST":  "127.0.0.1",
+        "HOST": os.environ.get("MYSQL_HOST", "db"),
+        # "HOST":  "127.0.0.1",
         # "PORT": os.environ.get("MYSQL_PORT", "3306"),
         "PORT": os.environ.get("MYSQL_PORT", "13666"),
         "OPTIONS": {"init_command": 'SET sql_mode="STRICT_TRANS_TABLES"'},
@@ -141,8 +139,8 @@ STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 )
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 MEDIA_URL = "/media/"
