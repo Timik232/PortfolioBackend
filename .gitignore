@@ -248,3 +248,4 @@ ssl/
 *.png
 *.jpg
 *.jpeg
+.envdev
