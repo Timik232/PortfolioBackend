@@ -46,7 +46,7 @@ services:
       - PictureMe_static:/usr/src/PictureMe/static
     ports:
       - 8088:8088
-      - 442:442
+      - 443:443
     depends_on:
       - web
 
