@@ -9,10 +9,10 @@ RUN sed -i \
     -e 's/^#\(LoadModule proxy_http_module\)/\1/' \
     -e 's/^#\(LoadModule ssl_module\)/\1/' \
     -e 's/^#\(LoadModule headers_module\)/\1/' \
+    -e 's/^#\(LoadModule rewrite_module\)/\1/' \
     /usr/local/apache2/conf/httpd.conf
 
-COPY pictureme.conf /usr/local/apache2/conf/sites-available/
-RUN mkdir -p /usr/local/apache2/conf/sites-enabled \
-    && ln -s ../sites-available/pictureme.conf /usr/local/apache2/conf/sites-enabled/
+COPY pictureme.conf /usr/local/apache2/conf/extra/
+RUN echo "Include conf/extra/pictureme.conf" >> /usr/local/apache2/conf/httpd.conf
 
 EXPOSE 8088 442
