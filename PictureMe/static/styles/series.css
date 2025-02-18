@@ -165,6 +165,7 @@ figure.effect-text-two:hover p {
 	-webkit-transform: translate3d(0,0,0);
 	transform: translate3d(0,0,0);
 }
+
 .serie1{
 --textcol:#f66d52;
 --grad: rgba(51, 41, 31, 0.7);

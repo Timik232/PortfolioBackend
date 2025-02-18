@@ -12,10 +12,7 @@ from django.db import migrations
 def load_fixtures(apps, schema_editor):
     # List of fixture files to load
     fixture_files = [
-        "Album.json",
-        "Description.json",
-        "Element.json",
-        "Image.json",
+        "alldata.json",
     ]
 
     # Check if any data exists for the models
@@ -47,7 +44,7 @@ def load_fixtures(apps, schema_editor):
 
 class Migration(migrations.Migration):
     dependencies = [
-        ("portfolio", "0008_delete_amount_remove_album_element_url_and_more"),
+        ("portfolio", "0015_remove_element_grad_color_alter_album_grad_color_and_more"),
     ]
 
     operations = [

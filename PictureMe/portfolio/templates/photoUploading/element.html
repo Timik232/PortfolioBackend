@@ -7,6 +7,11 @@
 {% block content %}
     <main class="main">
           <article>
+          {% if element.text_color %}
+          <h1 style="--textcol: {{ element.text_color }};">
+          {{ element.first_name }} <span> {{ element.last_name }}</span>
+          </h1>
+          {% else %}
             <h1 class="{% if element.type == "ser" %}
             serie{{ element.style_number }}
             {% else %}
@@ -14,16 +19,17 @@
             {% endif %}">
                 {{ element.first_name }} <span> {{ element.last_name }}</span>
             </h1>
+            {% endif %}
           <p style="text-align: center; margin-top: 1em;">{{ element.description }}</p>
-            <div id="main-slider">
+            <div id="main-slider" tabindex="0">
               <div id="grid-slider">
                 <div class="vertline">
                   <button class="slider-previous" ><img src="{% static 'images/left.svg' %}" alt="left"></button>
                 </div>
                 <div class="slider">
                   <div class="slider-wrapper">
-                      {% for photo in element.photos.all %}
-                  		<img src="{{ photo.image.url }}" height="640px" alt="Element of photo" class="slide"/>
+                      {% for photo in element.images.all %}
+                  		<img src="{{ photo.image.url }}" height="640px" alt="Element of photo" class="slide" loading="lazy"/>
                       {% endfor %}
                   	</div>
                   </div>
@@ -32,7 +38,7 @@
                   </div>
               </div>
               <div id="slider-nav">
-                {% for i in element.photos.all %}
+                {% for i in element.images.all %}
                     <button data-slide="{{ forloop.counter0 }}" {% if forloop.first %}class="current"{% endif %}></button>
                 {% endfor %}
             </div>

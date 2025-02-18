@@ -1,5 +1,5 @@
 services:
-  web:
+  web-django:
     build:
       context: .
       dockerfile: Dockerfile
@@ -16,54 +16,49 @@ services:
     command: bash -c "
       python manage.py makemigrations &&
       python manage.py migrate --no-input &&
+      python manage.py collectstatic --noinput &&
       python superuser.py &&
       gunicorn PictureMe.wsgi:application -b 0.0.0.0:8000
       "
     #      python superuser.py &&
     volumes:
-      - PictureMe:/usr/src/PictureMe
-      - PictureMe_media:/usr/src/PictureMe/media
-      - PictureMe_static:/usr/src/PictureMe/static
+      - PictureMe1:/usr/src/PictureMe
+      - PictureMe1_media:/usr/src/PictureMe/media
+      - PictureMe1_static:/usr/src/PictureMe/static
     env_file:
       - ./.env
     environment:
       - ENV_FILE=.env
     healthcheck:
-      test: [ "CMD", "curl", "--fail", "--header", "Host: web", "http://localhost/" ]
+      test: [ "CMD", "curl", "--fail", "--header", "Host: web-django", "http://localhost/" ]
       interval: 30s
       timeout: 10s
       retries: 5
     networks:
-      - cloudflare_network
+      - cloudflare_nas_network
+      - nginx-proxy-manager_nginx-proxy
     depends_on:
       db:
         condition: service_healthy
 
-  nginx:
+  nginx-photo:
     build:
       context: nginx/.
     container_name: webserver
     restart: always
     volumes:
       - ./ssl:/ssl/
-      - PictureMe_media:/usr/src/PictureMe/media
-      - PictureMe_static:/usr/src/PictureMe/static
+      - PictureMe1_media:/usr/src/PictureMe/media
+      - PictureMe1_static:/usr/src/PictureMe/static
     ports:
       - 8088:8088
       - 442:442
     depends_on:
-      - web
+      - web-django
     networks:
-      - cloudflare_network
+      - cloudflare_nas_network
+      - nginx-proxy-manager_nginx-proxy
 
-  cloudflared-web:
-    image: cloudflare/cloudflared:latest
-    command: tunnel --no-autoupdate run
-    environment:
-      - TUNNEL_TOKEN=eyJhIjoiODg3NjRjZWNlZDA5ZGVhYTM2MWIzYzI5N2I3ZDZiOWIiLCJ0IjoiYjA3NGU2NzYtZGJhNS00YjgwLWIwN2EtNzBmZDE3YTlhZjRjIiwicyI6IlpEZzRObVE0TVdFdE5ESXhPUzAwWWpJNUxUa3lNRGN0TVdSaE9HTTNObU5tTUROaSJ9
-    networks:
-      - cloudflare_network  # Same network as Django
-    restart: always
 
   db:
     image: mysql:latest
@@ -87,14 +82,33 @@ services:
       timeout: 20s
       retries: 10
     networks:
-      - cloudflare_network
+      - cloudflare_nas_network
+      - nginx-proxy-manager_nginx-proxy
+
+  static-server:
+    build:
+      context: nginx-static/.
+    container_name: static-server
+    restart: always
+    volumes:
+      - PictureMe1_static:/usr/src/PictureMe/static
+      - PictureMe1_media:/usr/src/PictureMe/media
+      - ./nginx-static/static-nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 8079:79
+    networks:
+      - cloudflare_nas_network
+      - nginx-proxy-manager_nginx-proxy
 
 volumes:
-  PictureMe:
-  PictureMe_media:
-  PictureMe_static:
+  PictureMe1:
+  PictureMe1_media:
+  PictureMe1_static:
   db_PictureMe:
 
 networks:
-  cloudflare_network:
-    driver: bridge
+  cloudflare_nas_network:
+    external: true
+    name: cloudflare_nas_network
+  nginx-proxy-manager_nginx-proxy:
+    external: true

@@ -36,6 +36,9 @@ CSRF_TRUSTED_ORIGINS = os.environ.get("DJANGO_ALLOWED_CSRF", "http://127.0.0.1")
 )
 USE_X_FORWARDED_HOST = True
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -45,6 +48,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "easy_thumbnails",
+    "multiupload_plus",
+    "colorfield",
     "filer",
     "portfolio",
     "django.contrib.admin",
@@ -95,7 +100,7 @@ DATABASES = {
         "HOST": os.environ.get("MYSQL_HOST", "db"),
         # "HOST":  "127.0.0.1",
         # "PORT": os.environ.get("MYSQL_PORT", "3306"),
-        "PORT": os.environ.get("MYSQL_PORT", "13666"),
+        "PORT": os.environ.get("MYSQL_PORT", "3306"),
         "OPTIONS": {"init_command": 'SET sql_mode="STRICT_TRANS_TABLES"'},
     }
 }
@@ -135,7 +140,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = "static/"
+
+STATIC_URL = "https://static.ser13volk.me/static/"
 
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
@@ -145,7 +151,7 @@ STATICFILES_FINDERS = (
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 
-MEDIA_URL = "/media/"
+MEDIA_URL = "https://static.ser13volk.me/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # Default primary key field type
