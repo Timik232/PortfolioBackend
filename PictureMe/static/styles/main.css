@@ -808,6 +808,18 @@ a:hover {
 }
 
 @media only screen and (max-width: 810px) {
+	.elements,
+    .elements ul {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+	.miniheader:before {
+	padding-left: 0
+	}
+	.navbar .shapka__blocks {
+	padding: 0
+	}
+
     .text__d7200:after {
         font-size: 0.8em;
     }
@@ -868,6 +880,7 @@ a:hover {
     }
 
     .elements {
+    	padding: 0;
         border-radius: 30px;
         border: 1.5px solid #333;
 

@@ -1,4 +1,3 @@
-
 (function() {
 	function Slideshow(element) {
 		this.el = document.querySelector(element);
@@ -60,6 +59,31 @@
 		  self._slideTo(self.index);
 		}, false);
 
+		document.addEventListener('keydown', function(e) {
+		  if (e.key === 'ArrowLeft' || e.keyCode === 37 || e.keyCode === 65) {
+		    e.preventDefault();
+		    if (self.index > 0) {
+		      let cur = document.querySelector('#slider-nav button.current');
+		      cur.classList.remove('current');
+		      self.index--;
+		      let newCur = document.querySelector(`button[data-slide="${self.index}"]`);
+		      newCur.classList.add('current');
+		      self._slideTo(self.index);
+		    }
+		  } else if (e.key === 'ArrowRight' || e.keyCode === 39 || e.keyCode === 68) {
+		    e.preventDefault();
+		    if (self.index < self.total - 1) {
+		      let cur = document.querySelector('#slider-nav button.current');
+		      cur.classList.remove('current');
+		      self.index++;
+		      let newCur = document.querySelector(`button[data-slide="${self.index}"]`);
+		      newCur.classList.add('current');
+		      self._slideTo(self.index);
+		    }
+		  }
+		});
+
+
 		for (let i = 0; i < self.links.length; i++){
 		  self.links[i].addEventListener("click", function() {
 			let cur = document.querySelector('#slider-nav button.current')
@@ -76,15 +100,26 @@
 
 		self.el.addEventListener("touchend", function(e) {
 		  self.touchEndX = e.changedTouches[0].clientX;
-		  if (self.touchEndX < self.touchStartX) {
-			self.index++;
-			self._slideTo(self.index);
+		  // Swipe left: go to next slide if not at the end
+		  if (self.touchEndX < self.touchStartX && self.index < self.total - 1) {
+		    let cur = document.querySelector('#slider-nav button.current');
+		    if(cur) { cur.classList.remove('current'); }
+		    self.index++;
+		    let newCur = document.querySelector(`button[data-slide="${self.index}"]`);
+		    if(newCur) { newCur.classList.add('current'); }
+		    self._slideTo(self.index);
 		  }
-		  else if (self.touchEndX > self.touchStartX) {
-			self.index--;
-			self._slideTo(self.index);
+		  // Swipe right: go to previous slide if not at the beginning
+		  else if (self.touchEndX > self.touchStartX && self.index > 0) {
+		    let cur = document.querySelector('#slider-nav button.current');
+		    if(cur) { cur.classList.remove('current'); }
+		    self.index--;
+		    let newCur = document.querySelector(`button[data-slide="${self.index}"]`);
+		    if(newCur) { newCur.classList.add('current'); }
+		    self._slideTo(self.index);
 		  }
 		}, false);
+
 
 		self.wrapper.addEventListener("click", function(e) {
 		  if (e.target.classList.contains("slide")) {
@@ -103,6 +138,7 @@
 		}
 	  }
 	};
+
 	document.addEventListener("DOMContentLoaded", function() {
 		let slider = new Slideshow("#main-slider");
 	});

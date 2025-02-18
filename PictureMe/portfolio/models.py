@@ -1,9 +1,8 @@
 import os
 
-# from django.contrib import admin
+from colorfield.fields import ColorField
+from django.core.validators import validate_image_file_extension
 from django.db import models
-
-# from filer.fields.image import FilerImageField
 
 
 class Album(models.Model):
@@ -13,6 +12,14 @@ class Album(models.Model):
     first_name = models.CharField(max_length=40)
     last_name = models.CharField(max_length=40)
     style_number = models.PositiveIntegerField(default=1)
+    text_color = ColorField(default="#000000", help_text="Выберите цвет текста")
+    grad_color = ColorField(
+        format="rgba",
+        default="rgba(35,59,52,0.7)",
+        help_text="Цвет градиента в формате RGBA",
+        null=True,
+        blank=True,
+    )
 
     def __str__(self):
         return "Альбом " + self.first_name + " " + self.last_name + f" ({self.type})"
@@ -26,17 +33,22 @@ class Element(models.Model):
     style_number = models.PositiveIntegerField(default=1)
     description = models.TextField(null=True, blank=True)
     album = models.ForeignKey(to=Album, on_delete=models.PROTECT)
-    photos = models.ManyToManyField("Image")
+    text_color = ColorField(default="#000000", help_text="Выберите цвет текста")
 
     def __str__(self):
         return "Элемент " + self.first_name + " " + self.last_name
 
 
 class Image(models.Model):
-    image = models.ImageField(upload_to="photo/")
+    image = models.ImageField(
+        upload_to="photo/", validators=[validate_image_file_extension]
+    )
+    parent_element = models.ForeignKey(
+        Element, on_delete=models.CASCADE, related_name="images", null=True, blank=True
+    )  # Add this
 
     def __str__(self):
-        return "Фотография " + os.path.basename(self.image.name)
+        return f"Фото {self.id} ({os.path.basename(self.image.name)})"
 
 
 class Description(models.Model):
@@ -75,12 +87,3 @@ class Order(models.Model):
 
     def __str__(self):
         return f"Заказ {self.id} с целью '{self.purpose}'"
-
-
-# class Image(models.Model):
-#     # image = FilerImageField(on_delete=models.CASCADE)
-#     image = models.ImageField(upload_to="photo/")
-#     # element = models.ForeignKey(Element, on_delete=models.CASCADE)
-#
-#     def __str__(self):
-#         return "Фотография " + os.path.basename(self.image.name)

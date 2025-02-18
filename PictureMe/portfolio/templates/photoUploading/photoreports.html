@@ -11,7 +11,13 @@
           <div class="reports">
             <ul>
                 {% for el in serie_els %}
-                    <li><a href="{% url 'portfolio:reports_element' el.id  %}"><div class="hover-text-one report{{ el.style_number }}">
+                    <li><a href="{% url 'portfolio:reports_element' el.id  %}">
+                         {% if el.text_color and el.grad_color %}
+                    <div class="hover-text-one" style="--textcol: {{ el.text_color }}; --grad: {{ el.grad_color }};">
+                        {% else %}
+                    <div class="hover-text-one report{{ el.style_number }}">
+                    {% endif %}
+
                     <figure class="effect-text-two">
                       <img src="{{ el.image.url }}" width=460px alt="dance">
 
