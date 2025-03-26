@@ -1,1 +1,1010 @@
-[{"model": "portfolio.album", "pk": 1, "fields": {"type": "rep", "image": "screensaver/dance_eZvmdSW.jpg", "first_name": "Репетиции", "last_name": "бала", "style_number": 1, "text_color": "#58B999", "grad_color": "rgba(35,59,52,0.7)"}}, {"model": "portfolio.album", "pk": 2, "fields": {"type": "rep", "image": "screensaver/game_QkltRIq.jpg", "first_name": "Нет игры", "last_name": "нет жизни", "style_number": 1, "text_color": "#7E87FF", "grad_color": "rgba(37,35,59,0.7)"}}, {"model": "portfolio.album", "pk": 3, "fields": {"type": "rep", "image": "screensaver/dod_MLRpuyY.jpg", "first_name": "ДОД", "last_name": "ИТ", "style_number": 1, "text_color": "#B0B0B0", "grad_color": "rgba(59,59,59,0.7)"}}, {"model": "portfolio.album", "pk": 4, "fields": {"type": "rep", "image": "screensaver/up_Hs3PXuW.jpg", "first_name": "Карьерный", "last_name": "рост", "style_number": 1, "text_color": "#FFFE7E", "grad_color": "rgba(56,59,35,0.7)"}}, {"model": "portfolio.element", "pk": 1, "fields": {"type": "rep", "first_name": "Репетиции", "last_name": "бала", "style_number": 1, "description": "Традиционный бал РТУ МИРЭА", "album": 1, "text_color": "#58B999"}}, {"model": "portfolio.element", "pk": 2, "fields": {"type": "rep", "first_name": "Нет игры", "last_name": "нет жизни", "style_number": 1, "description": "Мероприятие института ИПТИП в РТУ МИРЭА", "album": 2, "text_color": "#7E87FF"}}, {"model": "portfolio.element", "pk": 3, "fields": {"type": "rep", "first_name": "Карьерный", "last_name": "рост", "style_number": 1, "description": "Мероприятие в РТУ МИРЭА", "album": 4, "text_color": "#FFFE7E"}}, {"model": "portfolio.element", "pk": 4, "fields": {"type": "rep", "first_name": "День открытых дверей", "last_name": "института информационных технологий", "style_number": 1, "description": "", "album": 3, "text_color": "#B0B0B0"}}, {"model": "portfolio.image", "pk": 2, "fields": {"image": "photo/3Y2A0433.jpg", "parent_element": 1}}, {"model": "portfolio.image", "pk": 3, "fields": {"image": "photo/dance_1.jpg", "parent_element": 1}}, {"model": "portfolio.image", "pk": 4, "fields": {"image": "photo/dance_2.jpg", "parent_element": 1}}, {"model": "portfolio.image", "pk": 5, "fields": {"image": "photo/dance_3.jpg", "parent_element": 1}}, {"model": "portfolio.image", "pk": 6, "fields": {"image": "photo/dance_4.jpg", "parent_element": 1}}, {"model": "portfolio.image", "pk": 7, "fields": {"image": "photo/dance_5.jpg", "parent_element": 1}}, {"model": "portfolio.image", "pk": 8, "fields": {"image": "photo/dance_6.jpg", "parent_element": 1}}, {"model": "portfolio.image", "pk": 9, "fields": {"image": "photo/dance_7_YEpzAUa.jpg", "parent_element": 1}}, {"model": "portfolio.image", "pk": 10, "fields": {"image": "photo/game_1.jpg", "parent_element": 2}}, {"model": "portfolio.image", "pk": 11, "fields": {"image": "photo/game_2.jpg", "parent_element": 2}}, {"model": "portfolio.image", "pk": 17, "fields": {"image": "photo/game_3_dzUJfWZ.jpg", "parent_element": 2}}, {"model": "portfolio.image", "pk": 18, "fields": {"image": "photo/game_4_rjw9cAV.jpg", "parent_element": 2}}, {"model": "portfolio.image", "pk": 19, "fields": {"image": "photo/game_5_eSuPN5g.jpg", "parent_element": 2}}, {"model": "portfolio.image", "pk": 20, "fields": {"image": "photo/game_6_MtBRKrH.jpg", "parent_element": 2}}, {"model": "portfolio.image", "pk": 21, "fields": {"image": "photo/game_7_KdG36y1.jpg", "parent_element": 2}}, {"model": "portfolio.image", "pk": 22, "fields": {"image": "photo/up_1.jpg", "parent_element": 3}}, {"model": "portfolio.image", "pk": 23, "fields": {"image": "photo/up_2.jpg", "parent_element": 3}}, {"model": "portfolio.image", "pk": 24, "fields": {"image": "photo/up_3_2SvWJm0.jpg", "parent_element": 3}}, {"model": "portfolio.image", "pk": 25, "fields": {"image": "photo/up_4.jpg", "parent_element": 3}}, {"model": "portfolio.image", "pk": 26, "fields": {"image": "photo/up_5.jpg", "parent_element": 3}}, {"model": "portfolio.image", "pk": 27, "fields": {"image": "photo/up_6.jpg", "parent_element": 3}}, {"model": "portfolio.image", "pk": 28, "fields": {"image": "photo/up_7.jpg", "parent_element": 3}}, {"model": "portfolio.image", "pk": 29, "fields": {"image": "photo/dod_1.jpg", "parent_element": 4}}, {"model": "portfolio.image", "pk": 30, "fields": {"image": "photo/dod_2.jpg", "parent_element": 4}}, {"model": "portfolio.image", "pk": 31, "fields": {"image": "photo/dod_3.jpg", "parent_element": 4}}, {"model": "portfolio.image", "pk": 32, "fields": {"image": "photo/dod_4.jpg", "parent_element": 4}}, {"model": "portfolio.image", "pk": 33, "fields": {"image": "photo/dod_5_FQCPYx5.jpg", "parent_element": 4}}, {"model": "portfolio.description", "pk": 1, "fields": {"text": "Приветствую вас на моём сайте. Меня зовут Тимур Комолов, я обучаюсь в группе ИКБО-03-21. Этот сайт представляет собой моё портфолио как фотографа, но так же здесь будет немного информации обо мне и, возможно, просто важные вещи, которые посчитаю нужным добавить. Если вы пришли только посмотреть мои фотографии, то переходите в разделы \"Серии фото\" или \"Репортажка\" (репортажная съёмка)", "page": "main", "main_photo": "main/d7200.jpg"}}, {"model": "portfolio.description", "pk": 2, "fields": {"text": "Меня зовут Тимур Комолов, на данный момент (на 2022-2023 год) я учусь лучшем вузе страны — РТУ МИРЭА, в нём состою в Медиацентре как фотограф. Родился в Москве, но большую часть жизни провёл в Лыткарино, в нём же и учился в школе. Фотографией я начал увлекаться в после 9 класса (2019), когда у меня появился первый смартфон — Ulefone Armor 6. Я тогда очень много на него фотографировал, за два года у меня было около 10 тысяч фотографий, вся память была только ими забита) И только после того, как поступил в вуз, я прошёл медиашколу по направлению \"Фото\", во время которой впервые взял в руки профессиональную камеру (это было в 2021), после чего начал активно снимать различные мероприятия в вузе. Вот сейчас, получается, уже год снимаю.", "page": "abme", "main_photo": "main/mewithcamera.jpg"}}]
+[
+{
+    "model": "portfolio.album",
+    "pk": 1,
+    "fields": {
+        "type": "rep",
+        "image": "screensaver/dance.jpg",
+        "first_name": "Репетиции",
+        "last_name": "бала",
+        "style_number": 1,
+        "text_color": "#58B999",
+        "grad_color": "rgba(35,59,52,0.7)"
+    }
+},
+{
+    "model": "portfolio.album",
+    "pk": 2,
+    "fields": {
+        "type": "rep",
+        "image": "screensaver/game.jpg",
+        "first_name": "Нет игры",
+        "last_name": "нет жизни",
+        "style_number": 1,
+        "text_color": "#7E87FF",
+        "grad_color": "rgba(37,35,59,0.7)"
+    }
+},
+{
+    "model": "portfolio.album",
+    "pk": 3,
+    "fields": {
+        "type": "rep",
+        "image": "screensaver/dod.jpg",
+        "first_name": "ДОД",
+        "last_name": "ИТ",
+        "style_number": 1,
+        "text_color": "#B0B0B0",
+        "grad_color": "rgba(59,59,59,0.7)"
+    }
+},
+{
+    "model": "portfolio.album",
+    "pk": 4,
+    "fields": {
+        "type": "rep",
+        "image": "screensaver/up.jpg",
+        "first_name": "Карьерный",
+        "last_name": "рост",
+        "style_number": 1,
+        "text_color": "#FFFE7E",
+        "grad_color": "rgba(56,59,35,0.7)"
+    }
+},
+{
+    "model": "portfolio.album",
+    "pk": 5,
+    "fields": {
+        "type": "ser",
+        "image": "screensaver/fire.jpg",
+        "first_name": "Завораживающий",
+        "last_name": "огонь",
+        "style_number": 1,
+        "text_color": "#F66D52",
+        "grad_color": "rgba(51,41,31,0.7)"
+    }
+},
+{
+    "model": "portfolio.album",
+    "pk": 6,
+    "fields": {
+        "type": "ser",
+        "image": "screensaver/karelia.jpg",
+        "first_name": "Удивительная",
+        "last_name": "Карелия",
+        "style_number": 2,
+        "text_color": "#038A69",
+        "grad_color": "rgba(31,51,50,0.7)"
+    }
+},
+{
+    "model": "portfolio.album",
+    "pk": 7,
+    "fields": {
+        "type": "ser",
+        "image": "screensaver/nature.jpg",
+        "first_name": "Чарующая",
+        "last_name": "природа",
+        "style_number": 1,
+        "text_color": "#00AC16",
+        "grad_color": "rgba(31,51,35,0.7)"
+    }
+},
+{
+    "model": "portfolio.album",
+    "pk": 8,
+    "fields": {
+        "type": "ser",
+        "image": "screensaver/cat.jpg",
+        "first_name": "Потешный",
+        "last_name": "кот",
+        "style_number": 1,
+        "text_color": "#AC9079",
+        "grad_color": "rgba(64,64,64,0.7)"
+    }
+},
+{
+    "model": "portfolio.album",
+    "pk": 9,
+    "fields": {
+        "type": "ser",
+        "image": "screensaver/character.jpg",
+        "first_name": "Интригующие",
+        "last_name": "персонажи",
+        "style_number": 1,
+        "text_color": "#DAF652",
+        "grad_color": "rgba(49,51,31,0.7)"
+    }
+},
+{
+    "model": "portfolio.album",
+    "pk": 10,
+    "fields": {
+        "type": "ser",
+        "image": "screensaver/pigeon.jpg",
+        "first_name": "Городские",
+        "last_name": "курицы",
+        "style_number": 1,
+        "text_color": "#8D7EFF",
+        "grad_color": "rgba(35,37,59,0.7)"
+    }
+},
+{
+    "model": "portfolio.element",
+    "pk": 1,
+    "fields": {
+        "type": "rep",
+        "first_name": "Репетиции",
+        "last_name": "бала",
+        "style_number": 1,
+        "description": "Традиционный бал РТУ МИРЭА",
+        "album": 1,
+        "text_color": "#58B999"
+    }
+},
+{
+    "model": "portfolio.element",
+    "pk": 2,
+    "fields": {
+        "type": "rep",
+        "first_name": "Нет игры",
+        "last_name": "нет жизни",
+        "style_number": 1,
+        "description": "Мероприятие института ИПТИП в РТУ МИРЭА",
+        "album": 2,
+        "text_color": "#7E87FF"
+    }
+},
+{
+    "model": "portfolio.element",
+    "pk": 3,
+    "fields": {
+        "type": "rep",
+        "first_name": "Карьерный",
+        "last_name": "рост",
+        "style_number": 1,
+        "description": "Мероприятие в РТУ МИРЭА",
+        "album": 4,
+        "text_color": "#FFFE7E"
+    }
+},
+{
+    "model": "portfolio.element",
+    "pk": 4,
+    "fields": {
+        "type": "rep",
+        "first_name": "День открытых дверей",
+        "last_name": "института информационных технологий",
+        "style_number": 1,
+        "description": "",
+        "album": 3,
+        "text_color": "#B0B0B0"
+    }
+},
+{
+    "model": "portfolio.element",
+    "pk": 5,
+    "fields": {
+        "type": "ser",
+        "first_name": "Потешный",
+        "last_name": "кот",
+        "style_number": 1,
+        "description": "",
+        "album": 8,
+        "text_color": "#AC9079"
+    }
+},
+{
+    "model": "portfolio.element",
+    "pk": 6,
+    "fields": {
+        "type": "ser",
+        "first_name": "Городские",
+        "last_name": "курицы",
+        "style_number": 1,
+        "description": "",
+        "album": 10,
+        "text_color": "#8D7EFF"
+    }
+},
+{
+    "model": "portfolio.element",
+    "pk": 7,
+    "fields": {
+        "type": "ser",
+        "first_name": "Интригующие",
+        "last_name": "персонажи",
+        "style_number": 1,
+        "description": "",
+        "album": 9,
+        "text_color": "#DAF652"
+    }
+},
+{
+    "model": "portfolio.element",
+    "pk": 8,
+    "fields": {
+        "type": "ser",
+        "first_name": "Чарующая",
+        "last_name": "природа",
+        "style_number": 1,
+        "description": "",
+        "album": 7,
+        "text_color": "#00AC16"
+    }
+},
+{
+    "model": "portfolio.element",
+    "pk": 9,
+    "fields": {
+        "type": "ser",
+        "first_name": "Удивительная",
+        "last_name": "Карелия",
+        "style_number": 1,
+        "description": "",
+        "album": 6,
+        "text_color": "#038A69"
+    }
+},
+{
+    "model": "portfolio.element",
+    "pk": 10,
+    "fields": {
+        "type": "ser",
+        "first_name": "Завораживающий",
+        "last_name": "огонь",
+        "style_number": 1,
+        "description": "",
+        "album": 5,
+        "text_color": "#F66D52"
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 65,
+    "fields": {
+        "image": "photo/serie6/pigeon1.png",
+        "parent_element": 6
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 66,
+    "fields": {
+        "image": "photo/serie6/pigeon2.png",
+        "parent_element": 6
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 67,
+    "fields": {
+        "image": "photo/serie6/pigeon3.jpg",
+        "parent_element": 6
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 68,
+    "fields": {
+        "image": "photo/serie6/pigeon4.jpg",
+        "parent_element": 6
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 69,
+    "fields": {
+        "image": "photo/serie6/pigeon5.jpg",
+        "parent_element": 6
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 78,
+    "fields": {
+        "image": "photo/reports/dance/dance_1.jpg",
+        "parent_element": 1
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 79,
+    "fields": {
+        "image": "photo/reports/dance/dance_2.jpg",
+        "parent_element": 1
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 80,
+    "fields": {
+        "image": "photo/reports/dance/dance_3.jpg",
+        "parent_element": 1
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 81,
+    "fields": {
+        "image": "photo/reports/dance/dance_4.jpg",
+        "parent_element": 1
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 82,
+    "fields": {
+        "image": "photo/reports/dance/dance_5.jpg",
+        "parent_element": 1
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 83,
+    "fields": {
+        "image": "photo/reports/dance/dance_6.jpg",
+        "parent_element": 1
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 84,
+    "fields": {
+        "image": "photo/reports/dance/dance_7.jpg",
+        "parent_element": 1
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 92,
+    "fields": {
+        "image": "photo/reports/game/game_1.jpg",
+        "parent_element": 2
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 93,
+    "fields": {
+        "image": "photo/reports/game/game_2.jpg",
+        "parent_element": 2
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 94,
+    "fields": {
+        "image": "photo/reports/game/game_3.jpg",
+        "parent_element": 2
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 95,
+    "fields": {
+        "image": "photo/reports/game/game_4.jpg",
+        "parent_element": 2
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 96,
+    "fields": {
+        "image": "photo/reports/game/game_5.jpg",
+        "parent_element": 2
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 97,
+    "fields": {
+        "image": "photo/reports/game/game_6.jpg",
+        "parent_element": 2
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 98,
+    "fields": {
+        "image": "photo/reports/game/game_7.jpg",
+        "parent_element": 2
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 99,
+    "fields": {
+        "image": "photo/reports/up/up_1.jpg",
+        "parent_element": 3
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 100,
+    "fields": {
+        "image": "photo/reports/up/up_2.jpg",
+        "parent_element": 3
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 101,
+    "fields": {
+        "image": "photo/reports/up/up_3.jpg",
+        "parent_element": 3
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 102,
+    "fields": {
+        "image": "photo/reports/up/up_4.jpg",
+        "parent_element": 3
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 103,
+    "fields": {
+        "image": "photo/reports/up/up_5.jpg",
+        "parent_element": 3
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 104,
+    "fields": {
+        "image": "photo/reports/up/up_6.jpg",
+        "parent_element": 3
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 105,
+    "fields": {
+        "image": "photo/reports/up/up_7.jpg",
+        "parent_element": 3
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 106,
+    "fields": {
+        "image": "photo/reports/dod/dod_1.jpg",
+        "parent_element": 4
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 107,
+    "fields": {
+        "image": "photo/reports/dod/dod_2.jpg",
+        "parent_element": 4
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 108,
+    "fields": {
+        "image": "photo/reports/dod/dod_3.jpg",
+        "parent_element": 4
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 109,
+    "fields": {
+        "image": "photo/reports/dod/dod_4.jpg",
+        "parent_element": 4
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 110,
+    "fields": {
+        "image": "photo/reports/dod/dod_5.jpg",
+        "parent_element": 4
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 112,
+    "fields": {
+        "image": "photo/serie4/cat1.jpg",
+        "parent_element": 5
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 113,
+    "fields": {
+        "image": "photo/serie4/cat2.jpg",
+        "parent_element": 5
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 114,
+    "fields": {
+        "image": "photo/serie4/cat3.jpg",
+        "parent_element": 5
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 115,
+    "fields": {
+        "image": "photo/serie4/cat4.jpg",
+        "parent_element": 5
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 116,
+    "fields": {
+        "image": "photo/serie4/cat5.jpg",
+        "parent_element": 5
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 117,
+    "fields": {
+        "image": "photo/serie5/character_1.png",
+        "parent_element": 7
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 118,
+    "fields": {
+        "image": "photo/serie5/character_2.jpg",
+        "parent_element": 7
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 121,
+    "fields": {
+        "image": "photo/serie5/character_3.jpg",
+        "parent_element": 7
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 122,
+    "fields": {
+        "image": "photo/serie5/character_4.jpg",
+        "parent_element": 7
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 123,
+    "fields": {
+        "image": "photo/serie5/character_5.png",
+        "parent_element": 7
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 124,
+    "fields": {
+        "image": "photo/serie5/character_6.jpg",
+        "parent_element": 7
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 125,
+    "fields": {
+        "image": "photo/serie5/character_7.png",
+        "parent_element": 7
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 126,
+    "fields": {
+        "image": "photo/serie5/character_8.png",
+        "parent_element": 7
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 127,
+    "fields": {
+        "image": "photo/serie5/character_6.jpg",
+        "parent_element": 7
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 128,
+    "fields": {
+        "image": "photo/serie3/nature (1).png",
+        "parent_element": 8
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 129,
+    "fields": {
+        "image": "photo/serie3/nature (2).jpg",
+        "parent_element": 8
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 130,
+    "fields": {
+        "image": "photo/serie3/nature (3).jpg",
+        "parent_element": 8
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 131,
+    "fields": {
+        "image": "photo/serie3/nature (4).jpg",
+        "parent_element": 8
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 132,
+    "fields": {
+        "image": "photo/serie3/nature (5).jpg",
+        "parent_element": 8
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 133,
+    "fields": {
+        "image": "photo/serie3/nature (6).jpg",
+        "parent_element": 8
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 134,
+    "fields": {
+        "image": "photo/serie3/nature (7).png",
+        "parent_element": 8
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 135,
+    "fields": {
+        "image": "photo/serie3/nature (8).jpg",
+        "parent_element": 8
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 136,
+    "fields": {
+        "image": "photo/serie3/nature (9).png",
+        "parent_element": 8
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 137,
+    "fields": {
+        "image": "photo/serie3/nature (10).png",
+        "parent_element": 8
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 138,
+    "fields": {
+        "image": "photo/serie3/nature (11).png",
+        "parent_element": 8
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 139,
+    "fields": {
+        "image": "photo/serie3/nature.jpg",
+        "parent_element": 8
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 140,
+    "fields": {
+        "image": "photo/serie2/karelia (1).jpg",
+        "parent_element": 9
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 141,
+    "fields": {
+        "image": "photo/serie2/karelia (2).jpg",
+        "parent_element": 9
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 142,
+    "fields": {
+        "image": "photo/serie2/karelia (3).jpg",
+        "parent_element": 9
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 143,
+    "fields": {
+        "image": "photo/serie2/karelia (4).jpg",
+        "parent_element": 9
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 144,
+    "fields": {
+        "image": "photo/serie2/karelia (5).jpg",
+        "parent_element": 9
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 145,
+    "fields": {
+        "image": "photo/serie2/karelia (6).jpg",
+        "parent_element": 9
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 146,
+    "fields": {
+        "image": "photo/serie2/karelia (7).jpg",
+        "parent_element": 9
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 147,
+    "fields": {
+        "image": "photo/serie2/karelia (8).jpg",
+        "parent_element": 9
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 148,
+    "fields": {
+        "image": "photo/serie2/karelia (9).jpg",
+        "parent_element": 9
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 149,
+    "fields": {
+        "image": "photo/serie2/karelia (10).jpg",
+        "parent_element": 9
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 150,
+    "fields": {
+        "image": "photo/serie2/karelia (11).png",
+        "parent_element": 9
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 151,
+    "fields": {
+        "image": "photo/serie2/karelia (12).jpg",
+        "parent_element": 9
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 152,
+    "fields": {
+        "image": "photo/serie1/fire (1).jpg",
+        "parent_element": 10
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 153,
+    "fields": {
+        "image": "photo/serie1/fire (2).jpg",
+        "parent_element": 10
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 154,
+    "fields": {
+        "image": "photo/serie1/fire (3).jpg",
+        "parent_element": 10
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 155,
+    "fields": {
+        "image": "photo/serie1/fire (4).jpg",
+        "parent_element": 10
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 156,
+    "fields": {
+        "image": "photo/serie1/fire (5).jpg",
+        "parent_element": 10
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 157,
+    "fields": {
+        "image": "photo/serie1/fire (6).jpg",
+        "parent_element": 10
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 158,
+    "fields": {
+        "image": "photo/serie1/fire (7).jpg",
+        "parent_element": 10
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 159,
+    "fields": {
+        "image": "photo/serie1/fire (8).jpg",
+        "parent_element": 10
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 160,
+    "fields": {
+        "image": "photo/serie1/fire (9).jpg",
+        "parent_element": 10
+    }
+},
+{
+    "model": "portfolio.image",
+    "pk": 161,
+    "fields": {
+        "image": "photo/serie1/fire (10).png",
+        "parent_element": 10
+    }
+},
+{
+    "model": "portfolio.description",
+    "pk": 1,
+    "fields": {
+        "text": "Приветствую вас на моём сайте. Меня зовут Тимур Комолов, я обучаюсь в группе ИКБО-03-21. Этот сайт представляет собой моё портфолио как фотографа, но так же здесь будет немного информации обо мне и, возможно, просто важные вещи, которые посчитаю нужным добавить. Если вы пришли только посмотреть мои фотографии, то переходите в разделы \"Серии фото\" или \"Репортажка\" (репортажная съёмка)",
+        "page": "main",
+        "main_photo": "main/d7200.jpg"
+    }
+},
+{
+    "model": "portfolio.description",
+    "pk": 2,
+    "fields": {
+        "text": "Меня зовут Тимур Комолов, на данный момент (на 2022-2023 год) я учусь лучшем вузе страны — РТУ МИРЭА, в нём состою в Медиацентре как фотограф. Родился в Москве, но большую часть жизни провёл в Лыткарино, в нём же и учился в школе. Фотографией я начал увлекаться в после 9 класса (2019), когда у меня появился первый смартфон — Ulefone Armor 6. Я тогда очень много на него фотографировал, за два года у меня было около 10 тысяч фотографий, вся память была только ими забита) И только после того, как поступил в вуз, я прошёл медиашколу по направлению \"Фото\", во время которой впервые взял в руки профессиональную камеру (это было в 2021), после чего начал активно снимать различные мероприятия в вузе. Вот сейчас, получается, уже год снимаю.",
+        "page": "abme",
+        "main_photo": "main/mewithcamera.jpg"
+    }
+},
+{
+    "model": "portfolio.order",
+    "pk": 1,
+    "fields": {
+        "name": "Макаров Дмитрий",
+        "phone_number": "8800055535350",
+        "email": "dimamakarov19451@yandex.ru",
+        "vk_url": "https://vk.com",
+        "is_vk_answer": true,
+        "message": "привет, короткий вопрос",
+        "purpose": "Задать вопрос",
+        "get_time": "2025-02-18T15:52:07.370Z"
+    }
+},
+{
+    "model": "portfolio.order",
+    "pk": 2,
+    "fields": {
+        "name": "Макаров Дмитрий",
+        "phone_number": "8800055535350",
+        "email": "dimamakarov19451@yandex.ru",
+        "vk_url": "https://vk.com",
+        "is_vk_answer": true,
+        "message": "привет, короткий вопрос",
+        "purpose": "Задать вопрос",
+        "get_time": "2025-02-18T15:52:11.575Z"
+    }
+},
+{
+    "model": "portfolio.order",
+    "pk": 3,
+    "fields": {
+        "name": "Макаров Дмитрий",
+        "phone_number": "8800055535350",
+        "email": "dimamakarov19451@yandex.ru",
+        "vk_url": "https://vk.com",
+        "is_vk_answer": true,
+        "message": "привет, короткий вопрос",
+        "purpose": "Задать вопрос",
+        "get_time": "2025-02-18T15:52:13.531Z"
+    }
+},
+{
+    "model": "portfolio.order",
+    "pk": 4,
+    "fields": {
+        "name": "Макаров Дмитрий",
+        "phone_number": "8800055535350",
+        "email": "dimamakarov19451@yandex.ru",
+        "vk_url": "https://vk.com",
+        "is_vk_answer": true,
+        "message": "привет, Уведомление",
+        "purpose": "Задать вопрос",
+        "get_time": "2025-02-18T15:53:10.099Z"
+    }
+},
+{
+    "model": "portfolio.order",
+    "pk": 5,
+    "fields": {
+        "name": "Комолов",
+        "phone_number": null,
+        "email": "komolov.timurka@mail.ru",
+        "vk_url": null,
+        "is_vk_answer": false,
+        "message": "gfdgfdgfdgfdgfdgfd",
+        "purpose": "Другое",
+        "get_time": "2025-02-18T15:55:37.201Z"
+    }
+},
+{
+    "model": "portfolio.order",
+    "pk": 6,
+    "fields": {
+        "name": "Комолов",
+        "phone_number": null,
+        "email": "komolov.timurka@mail.ru",
+        "vk_url": null,
+        "is_vk_answer": false,
+        "message": "gfdgfdgfdgfdgfdgfd",
+        "purpose": "Другое",
+        "get_time": "2025-02-18T16:01:03.799Z"
+    }
+},
+{
+    "model": "portfolio.order",
+    "pk": 7,
+    "fields": {
+        "name": "Комолов",
+        "phone_number": null,
+        "email": "komolov.timurka@mail.ru",
+        "vk_url": null,
+        "is_vk_answer": false,
+        "message": "gfdgfdgfdgfdgfdgfd",
+        "purpose": "Другое",
+        "get_time": "2025-02-18T19:43:19.256Z"
+    }
+}
+]

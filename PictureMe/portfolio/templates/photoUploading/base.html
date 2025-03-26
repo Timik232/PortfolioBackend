@@ -3,16 +3,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  {% block title %}
   <title>Комолов Тимур</title>
+  {% endblock %}
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+  {% block description %}
+  <meta name="description" content="Портфолио фотографа Тимура Комолова.">
+  {% endblock %}
   <link rel="icon" href="{% static 'images/cameraicon.png' %}" sizes="any">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Oswald&display=swap" rel="stylesheet">
+  <meta name="yandex-verification" content="000c6cc5d2a6115a" />
   {% block css %}
   {% endblock %}
   </head>
   <body>
+  <div id="cookie-popup">
+        <p>На сайте используются файлы cookie для аналитики. Вы можете запретить передачу cookie для Яндекс.Метрики.</p>
+        <button id="accept-cookies">Принять</button>
+        <button id="decline-cookies">Запретить</button>
+    </div>
     <div class="background">
         <header class="shapka">
             <div class="shapka__logo">
@@ -75,6 +87,14 @@
             </div>
         </nav>
         </header>
+        <div id="dot0" class="dot" style="position:absolute; visibility:hidden; height:11px; width:11px;"><img src="{% static 'images/bullet.gif' %}" height="11" width="11" alt="ball0"></div>
+		<div id="dot1" class="dot" style="position:absolute; visibility:hidden; height:11px; width:11px;"><img src="{% static 'images/bullet.gif' %}" height="11" width="11" alt="ball1"></div>
+		<div id="dot2" class="dot" style="position:absolute; visibility:hidden; height:11px; width:11px;"><img src="{% static 'images/bullet.gif' %}" height="11" width="11" alt="ball2"></div>
+		<div id="dot3" class="dot" style="position:absolute; visibility:hidden; height:11px; width:11px;"><img src="{% static 'images/bullet.gif' %}" height="11" width="11" alt="ball3"></div>
+		<div id="dot4" class="dot" style="position:absolute; visibility:hidden; height:11px; width:11px;"><img src="{% static 'images/bullet.gif' %}" height="11" width="11" alt="ball4"></div>
+		<div id="dot5" class="dot" style="position:absolute; visibility:hidden; height:11px; width:11px;"><img src="{% static 'images/bullet.gif' %}" height="11" width="11" alt="ball5"></div>
+		<div id="dot6" class="dot" style="position:absolute; visibility:hidden; height:11px; width:11px;"><img src="{% static 'images/bullet.gif' %}" height="11" width="11" alt="ball6"></div>
+
         {% block content %}
         {% endblock %}
         {% block top-button %}
@@ -94,13 +114,13 @@
                 {% block social %}
                   <span class="media">
                     <span class="social-media-button vk-style" >
-                    <a href="https://vk.com/timik232" class="circle">
+                    <a href="https://vk.com/timik232" class="circle" aria-label="Профиль VK">
                         <span class="logo"></span>
                         <span class="moving-gradient"></span>
                     </a>
                       <span class="glow"></span>
                     </span>
-                    <span class="social-media-button telegram-style" >
+                    <span class="social-media-button telegram-style" aria-label="Страница ТГ">
                       <a href="https://t.me/ser13volk" class="circle">
                          <span class="logo"></span>
                         <span class="moving-gradient"></span>
@@ -108,7 +128,7 @@
                       <span class="glow"></span>
                     </span>
                     <span class="social-media-button github-style" >
-                      <a href="https://www.github.com/timik232" class="circle">
+                      <a href="https://www.github.com/timik232" class="circle" aria-label="Github профиль">
                         <span class="logo"></span>
                         <span class="moving-gradient"></span>
                       </a>
@@ -126,5 +146,14 @@
     <script>
       document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
+    <script src="{% static 'js/popup-cookie.js' %}" >
+    </script>
+    <!-- Яндекс.Метрика для пользователей, которые ранее уже согласились (если cookie установлено, popup не появится) -->
+    <noscript>
+        <div>
+            <img src="https://mc.yandex.ru/watch/100105752" style="position:absolute; left:-9999px;" alt="" />
+        </div>
+    </noscript>
+    <script src="{% static 'js/custom_cursor.js' %}"></script>
   </body>
   </html>

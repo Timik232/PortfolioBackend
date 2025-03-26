@@ -79,7 +79,7 @@ class Order(models.Model):
     name = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=16, null=True, blank=True)
     email = models.EmailField()
-    vk_url = models.URLField(null=True, blank=True)
+    vk_url = models.CharField(max_length=30, null=True, blank=True)
     is_vk_answer = models.BooleanField(null=True, blank=True, default=False)
     message = models.TextField()
     purpose = models.CharField(max_length=20)

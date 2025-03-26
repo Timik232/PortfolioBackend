@@ -12,7 +12,8 @@ COPY superuser.py .
 
 #    apt-get upgrade -y && \ is left out for now
 RUN apt-get update && \
-    apt-get -y install curl && \
+	apt-get -y install curl && \
+    apt-get -y install default-mysql-client && \
     apt-get -y install default-libmysqlclient-dev && \
     apt-get -y install libpq-dev  && \
     apt-get -y install python3-dev && \

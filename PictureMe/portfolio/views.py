@@ -3,11 +3,18 @@ from datetime import datetime
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import user_passes_test
+from django.http import JsonResponse
 from django.shortcuts import redirect, render
+from django.views.generic.base import TemplateView
 
 from portfolio.form import OrderFrom
 from portfolio.models import Album, Description, Element
 from portfolio.vk_module import send_to_vk
+
+
+class RobotsView(TemplateView):
+    template_name = "photoUploading/robots.txt"
+    content_type = "text/plain"
 
 
 def index(request):
@@ -33,6 +40,11 @@ def contacts(request):
             form.instance.purpose = form.get_purpose_label()
             form.save()
             send_to_vk(str(form))
+            return JsonResponse(
+                {"status": "success", "message": "Ваше сообщение успешно отправлено!"}
+            )
+        else:
+            return JsonResponse({"status": "error", "errors": form.errors}, status=400)
     else:
         form = OrderFrom()
     context = {"form": form}

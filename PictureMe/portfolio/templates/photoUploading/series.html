@@ -2,7 +2,11 @@
 {%  load static %}
 {% block css %}
 	<link rel="stylesheet" href="{% static 'styles/main.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/series.css' %}">
+	<link rel="preload" href="{% static 'styles/series.css' %}" as="style"
+      onload="this.onload=null;this.rel='stylesheet'">
+	<noscript>
+  <link rel="stylesheet" href="{% static 'styles/series.css' %}">
+	</noscript>
 {% endblock %}
 {% block content %}
 	<main class="main">
@@ -17,7 +21,7 @@
                           <div class="hover-text-one serie{{ el.style_number }}">
                     {% endif %}
                       <figure class="effect-text-two">
-                        <img src="{{ el.image.url }}" width=460px alt="fire">
+                        <img src="{{ el.image.url }}" width=460px alt="{{el.image.url}}">
                           <figcaption>
                         <p>{{ el.first_name }} <span> {{ el.last_name }}</span></p>
                           </figcaption>

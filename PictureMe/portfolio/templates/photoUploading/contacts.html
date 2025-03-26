@@ -1,8 +1,18 @@
 {% extends 'photoUploading/base.html' %}
 {% load static %}
+{% block title %}
+  <title>Комолов Тимур – Контакты</title>
+  {% endblock %} title %}
+{% block description %}
+<meta name="description" content="Портфолио фотографа Тимура Комолова. Страница с контактами">
+{% endblock %} description %}
 {% block css %}
     <link rel="stylesheet" href="{% static 'styles/main.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/contacts.css' %}">
+    <link rel="preload" href="{% static 'styles/contacts.css' %}" as="style"
+      onload="this.onload=null;this.rel='stylesheet'">
+	<noscript>
+  <link rel="stylesheet" href="{% static 'styles/contacts.css' %}">
+	</noscript>
 {% endblock %}
 {% block content %}
     <main class="main__contact">
@@ -13,13 +23,13 @@
                     <button id="turnoff">Выключить эффекты</button>
                     <br>
                     <ul>
-                        <div class="grid__input">
+                        <div class="grid__input grid__input_media ">
                             <div>
                                 <li>
-                                    <address class="vkid"><a href="https://vk.com/timik232">Мой ВК:</a></address>
+                                    <a href="https://vk.com/timik232">Мой ВК:</a>
                                 </li>
                                 <div class="social-media-button vk-style">
-                                    <a href="https://vk.com/timik232" class="circle">
+                                    <a href="https://vk.com/timik232" class="circle" aria-label="Профиль VK">
                                         <div class="logo"></div>
                                         <div class="moving-gradient"></div>
                                     </a>
@@ -29,7 +39,7 @@
                             <div>
                                 <li><a href="https://www.youtube.com/@user-vl4ux2sr7l">Мой YouTube:</a></li>
                                 <div class="social-media-button youtube-style">
-                                    <a href="https://www.youtube.com/@user-vl4ux2sr7l" class="circle">
+                                    <a href="https://www.youtube.com/@user-vl4ux2sr7l" class="circle" aria-label="Youtube канал">
                                         <div class="logo"></div>
                                         <div class="moving-gradient"></div>
                                     </a>
@@ -40,7 +50,7 @@
                                 <li><a href="https://t.me/ser13volk">Телеграмм:</a>
                                 <li>
                                     <div class="social-media-button telegram-style">
-                                        <a href="https://t.me/ser13volk" class="circle">
+                                        <a href="https://t.me/ser13volk" class="circle" aria-label="Страница в ТГ">
                                             <div class="logo"></div>
                                             <div class="moving-gradient"></div>
                                         </a>
@@ -50,7 +60,7 @@
                             <div>
                                 <li><a href="https://www.github.com/timik232">Мой гитхаб:</a></li>
                                 <div class="social-media-button github-style">
-                                    <a href="https://www.github.com/timik232" class="circle">
+                                    <a href="https://www.github.com/timik232" class="circle" aria-label="Ссылка на GitHub">
                                         <div class="logo"></div>
                                         <div class="moving-gradient"></div>
                                     </a>
@@ -81,7 +91,7 @@
                           <span class="grid__column">
                             <label for="{{ form.name.id_for_label }}">Имя и фамилия</label>
                           <div class="inp">{{ form.name }}</div>
-                         <label for="form.email.id_for_label">Email</label>
+                         <label for="{{ form.email.id_for_label }}">Email</label>
                           <div class="inp">{{ form.email }}</div>
                         </span>
                                 <span class="grid__column">
@@ -114,8 +124,7 @@
     </main>
 {% endblock %}
 {% block scripts %}
-    <script src="/static/js/submit.js">
-    </script>
+    <script src="{% static 'js/submit.js' %}?v=2.0"></script>
     {% if messages %}
         {#    <script>#}
         {#        alert("{{ messages }}");#}

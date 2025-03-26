@@ -11,9 +11,11 @@ services:
     restart: always
     ports:
       - 8000:8000
-    expose:
-      - 8000
     command: bash -c "
+      while ! mysqladmin ping -h db -u root -p$$MYSQL_ROOT_PASSWORD --silent; do
+        echo 'Waiting for database...';
+        sleep 1;
+      done &&
       python manage.py makemigrations &&
       python manage.py migrate --no-input &&
       python manage.py collectstatic --noinput &&
@@ -30,10 +32,9 @@ services:
     environment:
       - ENV_FILE=.env
     healthcheck:
-      test: [ "CMD", "curl", "--fail", "--header", "Host: web-django", "http://localhost/" ]
-      interval: 30s
-      timeout: 10s
-      retries: 5
+      test: ["CMD", "mysqladmin","ping", "-h", "localhost"]
+      timeout: 120s
+      retries: 20
     networks:
       - cloudflare_nas_network
       - nginx-proxy-manager_nginx-proxy
@@ -77,10 +78,12 @@ services:
       - 13666:3306
     volumes:
       - db_PictureMe:/var/lib/mysql
+      - ./init-exporter.sql:/docker-entrypoint-initdb.d/init-exporter.sql:ro
     healthcheck:
-      test: ["CMD", "mysqladmin","ping", "-h", "localhost"]
-      timeout: 20s
-      retries: 10
+      test: ["CMD-SHELL", "mysqladmin ping -u root -p$$MYSQL_ROOT_PASSWORD"]
+      interval: 30s
+      timeout: 1000s
+      retries: 60
     networks:
       - cloudflare_nas_network
       - nginx-proxy-manager_nginx-proxy
@@ -100,11 +103,77 @@ services:
       - cloudflare_nas_network
       - nginx-proxy-manager_nginx-proxy
 
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    ports:
+      - 9090:9090
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    networks:
+      - cloudflare_nas_network
+      - nginx-proxy-manager_nginx-proxy
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - 9091:3000
+    env_file:
+      - ./.env
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${MYSQL_PASSWORD}
+    networks:
+      - cloudflare_nas_network
+      - nginx-proxy-manager_nginx-proxy
+
+  nginx-exporter:
+    image: nginx/nginx-prometheus-exporter:latest
+    container_name: nginx-exporter
+    ports:
+      - 9113:9113
+    command: -nginx.scrape-uri http://nginx-photo:8088/nginx_status
+    depends_on:
+    - nginx-photo
+    networks:
+      - cloudflare_nas_network
+      - nginx-proxy-manager_nginx-proxy
+
+  mysql-exporter:
+    image: prom/mysqld-exporter:latest
+    container_name: mysql-exporter
+    volumes:
+    - ./my.cnf:/etc/my.cnf
+    command: ["--config.my-cnf=/etc/my.cnf"]
+    ports:
+      - 9104:9104
+    networks:
+      - cloudflare_nas_network
+      - nginx-proxy-manager_nginx-proxy
+    depends_on:
+      db:
+        condition: service_healthy
+
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: node-exporter
+    ports:
+      - 9100:9100
+    networks:
+      - cloudflare_nas_network
+      - nginx-proxy-manager_nginx-proxy
+
+
 volumes:
   PictureMe1:
   PictureMe1_media:
   PictureMe1_static:
   db_PictureMe:
+  grafana-storage:
 
 networks:
   cloudflare_nas_network:

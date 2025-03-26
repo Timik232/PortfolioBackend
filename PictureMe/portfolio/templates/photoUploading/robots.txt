@@ -1,0 +1,4 @@
+User-agent: *
+Crawl-delay: 1
+Host: photo.ser13volk.me
+Disallow: /admin/

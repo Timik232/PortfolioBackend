@@ -38,8 +38,10 @@ USE_X_FORWARDED_HOST = True
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
-
-# Application definition
+SECURE_CROSS_ORIGIN_OPENER_POLICY = "same-origin"
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
 
 INSTALLED_APPS = [
     "django.contrib.auth",
@@ -53,16 +55,19 @@ INSTALLED_APPS = [
     "filer",
     "portfolio",
     "django.contrib.admin",
+    "django_prometheus",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "django_prometheus.middleware.PrometheusBeforeMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django_prometheus.middleware.PrometheusAfterMiddleware",
 ]
 
 ROOT_URLCONF = "PictureMe.urls"
@@ -140,7 +145,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-
+# STATIC_URL = "static/"
 STATIC_URL = "https://static.ser13volk.me/static/"
 
 STATICFILES_FINDERS = (
@@ -151,6 +156,7 @@ STATICFILES_FINDERS = (
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 
+# MEDIA_URL = "/media/"
 MEDIA_URL = "https://static.ser13volk.me/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 

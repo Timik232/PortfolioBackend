@@ -20,24 +20,22 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 from portfolio.views import (
+    RobotsView,
     aboutme,
-    # admin_login,
     contacts,
     index,
-    # photoreports,
     phototerm,
 )
 
 urlpatterns = [
-    # path('admin/login/', admin_login),
-    # path('admin/', include(admin.site.urls)),
     path("admin/", admin.site.urls, name="admin"),
-    # path('admin_login/', admin_login, name='admin_login'),
+    path("robots.txt", RobotsView.as_view()),
     path("", index, name="index"),
     path("aboutme/", aboutme, name="aboutme"),
     path("contacts/", contacts, name="contacts"),
     path("phototerm/", phototerm, name="phototerm"),
     path("portfolio/", include("portfolio.urls", namespace="portfolio")),
+    path("", include("django_prometheus.urls")),
 ]
 
 if settings.DEBUG:
