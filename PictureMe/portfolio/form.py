@@ -54,7 +54,7 @@ class OrderFrom(forms.ModelForm):
             ),
             "vk_url": forms.TextInput(
                 attrs={
-                    "type": "url",
+                    "type": "text",
                     "placeholder": "https://vk.com/timik232",
                     "id": "vk",
                 }

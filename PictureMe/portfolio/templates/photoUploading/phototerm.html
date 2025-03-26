@@ -1,8 +1,18 @@
 {% extends 'photoUploading/base.html' %}
 {%  load static %}
+{% block title %}
+  <title>Комолов Тимур – Фототермины</title>
+  {% endblock %} title %}
+{% block description %}
+<meta name="description" content="Портфолио фотографа Тимура Комолова. Страница с фототерминами">
+{% endblock %} description %}
 {% block css %}
 	<link rel="stylesheet" href="{% static 'styles/main.css' %}">
+	<link rel="preload" href="{% static 'styles/phototerm.css' %}" as="style"
+      onload="this.onload=null;this.rel='stylesheet'">
+	<noscript>
   <link rel="stylesheet" href="{% static 'styles/phototerm.css' %}">
+	</noscript>
 {% endblock %}
 {% block content %}
 	<main class="main">

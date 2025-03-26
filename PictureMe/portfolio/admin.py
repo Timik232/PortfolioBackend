@@ -23,6 +23,10 @@ class ImageInline(admin.TabularInline):
     model = Image
     extra = 1
     readonly_fields = ["preview"]
+    can_delete = True
+
+    class Media:
+        js = ("js/delete_all.js",)
 
     def preview(self, obj):
         if obj.image:
@@ -89,10 +93,7 @@ class ElementAdmin(admin.ModelAdmin):
     )
 
     def save_model(self, request, obj, form, change):
-        # Сначала сохраняем основной объект
         super().save_model(request, obj, form, change)
-
-        # Затем обрабатываем вложенные изображения
         if form.cleaned_data.get("attachments"):
             for image_file in form.cleaned_data["attachments"]:
                 Image.objects.create(image=image_file, parent_element=obj)

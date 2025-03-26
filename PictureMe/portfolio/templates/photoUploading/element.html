@@ -2,7 +2,11 @@
 {%  load static %}
 {% block css %}
     <link rel="stylesheet" href="{% static 'styles/main.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/serie__element.css' %}">
+    <link rel="preload" href="{% static 'styles/serie__element.css' %}" as="style"
+      onload="this.onload=null;this.rel='stylesheet'">
+	<noscript>
+  <link rel="stylesheet" href="{% static 'styles/serie__element.css' %}">
+	</noscript>
 {% endblock %}
 {% block content %}
     <main class="main">
@@ -21,7 +25,7 @@
             </h1>
             {% endif %}
           <p style="text-align: center; margin-top: 1em;">{{ element.description }}</p>
-            <div id="main-slider" tabindex="0">
+            <div id="main-slider">
               <div id="grid-slider">
                 <div class="vertline">
                   <button class="slider-previous" ><img src="{% static 'images/left.svg' %}" alt="left"></button>
@@ -29,7 +33,7 @@
                 <div class="slider">
                   <div class="slider-wrapper">
                       {% for photo in element.images.all %}
-                  		<img src="{{ photo.image.url }}" height="640px" alt="Element of photo" class="slide" loading="lazy"/>
+                  		<img src="{{ photo.image.url }}" height="640px" alt="{{ photo.image.url }}" class="slide" loading="lazy"/>
                       {% endfor %}
                   	</div>
                   </div>
@@ -39,7 +43,7 @@
               </div>
               <div id="slider-nav">
                 {% for i in element.images.all %}
-                    <button data-slide="{{ forloop.counter0 }}" {% if forloop.first %}class="current"{% endif %}></button>
+                    <button data-slide="{{ forloop.counter0 }}" {% if forloop.first %}class="current"{% endif %} aria-label="{{ forloop.counter0 }}"></button>
                 {% endfor %}
             </div>
             </div>

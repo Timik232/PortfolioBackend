@@ -1,9 +1,19 @@
 {% extends 'photoUploading/base.html' %}
 {%  load static %}
+{% block title %}
+  <title>Комолов Тимур – Репортаж</title>
+  {% endblock %} title %}
+{% block description %}
+<meta name="description" content="Портфолио фотографа Тимура Комолова. Страница с репортажем.">
+{% endblock %} description %}
 {% block css %}
 	<link rel="stylesheet" href="{% static 'styles/main.css' %}">
     <link rel="stylesheet" href="{% static 'styles/series.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/photoreports.css' %}">
+    <link rel="preload" href="{% static 'styles/photoreports.css' %}" as="style"
+      onload="this.onload=null;this.rel='stylesheet'">
+	<noscript>
+  <link rel="stylesheet" href="{% static 'styles/photoreports.css' %}">
+	</noscript>
 {% endblock %}
 {% block content %}
 	<main class="main">
@@ -19,7 +29,7 @@
                     {% endif %}
 
                     <figure class="effect-text-two">
-                      <img src="{{ el.image.url }}" width=460px alt="dance">
+                      <img src="{{ el.image.url }}" width=460px alt="{{el.image.url}}">
 
                         <figcaption>
         {#                    <p>Репетиции <span> бала</span></p>#}
