@@ -248,7 +248,6 @@ ssl/
 *.png
 *.jpg
 *.jpeg
-.envdev
 
 .idea/
 /PictureMe/portfolio/secret_token.py
