@@ -9,11 +9,11 @@ cssselect2==0.7.0
 cycler==0.12.1
 Django==5.2.1
 django-colorfield==0.14.0
+django-filebrowser==4.0.3
 django-filer==3.4.4
 django-grappelli==4.0.4
-django-multiupload-plus
+django-multiupload==0.6.1
 django-polymorphic==4.11.5
-django-prometheus==2.4.1
 easy-thumbnails==2.10.1
 fonttools==4.57.0
 gunicorn==23.0.0
