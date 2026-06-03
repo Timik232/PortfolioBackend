@@ -241,13 +241,31 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 secret.py
-*.pyc
-PictureMe/__pycache__
 secret_token.py
+*.pyc
+.envdev
+
+# Django generated / collected static
+PictureMe/static/admin/
+PictureMe/static/filer/
+
+# Django media uploads (user content)
+PictureMe/media/
+
+# Django collected static root
+staticfiles/
+
+# SSL certificates
 ssl/
+
+# Image files (only for repo — images are served from media/static volumes)
 *.png
 *.jpg
 *.jpeg
 
-.idea/
-/PictureMe/portfolio/secret_token.py
+# Docker
+.docker/
+
+# OS
+.DS_Store
+Thumbs.db
